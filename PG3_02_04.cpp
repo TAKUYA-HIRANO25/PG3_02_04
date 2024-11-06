@@ -2,10 +2,29 @@
 //
 
 #include <iostream>
+#include "Circle.h"
+#include "Rectangle.h"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    IShape* shape[2];
+
+    float radius = 5.0f;
+
+    float width = 10.0f;
+    float height = 2.0f;
+
+    shape[0] = new Circle(radius);
+    shape[1] = new Rectangle(width, height);
+
+    for (int i = 0; i < 2; i++) {
+        shape[i]->Size();
+        shape[i]->Draw();
+    }
+
+    for (int i = 0; i < 2; i++) {
+        delete shape[i];
+    }
 }
 
 // プログラムの実行: Ctrl + F5 または [デバッグ] > [デバッグなしで開始] メニュー
